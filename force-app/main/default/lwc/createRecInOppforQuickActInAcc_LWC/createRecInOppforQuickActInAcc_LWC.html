@@ -1,0 +1,46 @@
+<template>
+    <lightning-card title="Opportunity">
+        <template for:each={accRecords} for:item="accRec">
+            <p key={accRec.Id}> 
+         <lightning-input 
+                         label="Opportunity Name" 
+                         value={accRec.Account.Name} >
+                         
+        </lightning-input> 
+        
+        <lightning-input 
+                        label="Opportunity Owner" 
+                        value={accRec.Owner.Name} 
+                        >
+        </lightning-input></p>
+    </template> 
+        <lightning-input 
+                       label="Close Date" 
+                       type="date" 
+                       onchange={handleChange}>
+        </lightning-input>
+        <div class="slds-box">
+
+        <template if:true={stageValues.data}>
+
+        <lightning-combobox label="Stage Name" 
+                            value={oppRecs}
+                            options={stageValues.data.values} 
+                            onchange={handleChange}
+                            ></lightning-combobox>
+        </template>
+        </div>
+        <lightning-button class="slds-m-left_x-small"
+                          variant="brand" 
+                          label="save" 
+                          onclick={handleSave}>
+        </lightning-button>
+        <lightning-button class="slds-m-left_x-small"
+                          variant="brand" 
+                          label="cancel" 
+                          onclick={handleCancel}>
+        </lightning-button>
+        
+
+    </lightning-card>
+</template>

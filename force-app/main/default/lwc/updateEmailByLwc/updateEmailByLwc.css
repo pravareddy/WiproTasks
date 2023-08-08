@@ -1,0 +1,6 @@
+.strong-text {
+    font-weight: bold;
+}
+.blue-utility-icon {
+    --sds-c-icon-color-foreground-default: rgb(50, 50, 197);
+}

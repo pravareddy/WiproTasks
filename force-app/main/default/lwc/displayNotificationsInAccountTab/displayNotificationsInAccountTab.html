@@ -1,0 +1,26 @@
+<template>
+    <lightning-card title="Displaying notifications in Table Format">
+        <div class="slds-m-around_medium">
+           <p class="slds-m-around_medium">Display Notifications in a paginated way</p>
+            <div style="height: 180px;">
+                <lightning-datatable 
+                                  data={sendRecords} 
+                                  columns={columnss} 
+                                  key-field="id">
+
+                </lightning-datatable>
+            </div>
+        </div>
+        <div class="slds-m-around_medium">
+            <p class="slds-m-around_medium">{startingRecord} to {endingRecord} of {totalRecordCount} records. page {page} of {totalPage}</p>
+            <c-child-paginator-for-dsiplaying-notifications 
+                                                          page-count-from-parent={page} 
+                                                          total-page-count-from-parent={totalPage}
+                                                          onprevious={preHandler} 
+                                                          onnext={nextHandler}>
+            </c-child-paginator-for-dsiplaying-notifications>
+        </div>
+    <p>{sendRecords.data}</p>
+    <p>{sendRecords}</p>
+    </lightning-card>
+</template>

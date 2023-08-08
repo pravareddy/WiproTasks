@@ -1,0 +1,17 @@
+<template>
+    <lightning-card title="Displaying deserialized Json Format">
+        <lightning-button 
+                        label ="Display data" 
+                        onclick={handleClick}>
+        </lightning-button>
+        
+        <template if:true={showText}>
+            <template for:each={storeCons} for:item="con">
+                <a href="#" class="list-group-item list-group-item-action" key={con}
+                >{con}</a
+              >
+            </template>
+        </template>
+    </lightning-card>
+    
+</template>

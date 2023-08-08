@@ -1,0 +1,31 @@
+<template>
+    <lightning-card title="Related">
+        <b>Review</b>
+           <h1>Basic Examples</h1>
+           <lightning-input label="Name" onchange={rating} ></lightning-input>
+           <lightning-input label="Enter Review" onchange={rating} ></lightning-input>
+           
+            
+                <lightning-tile label="Rating" type="media" >
+                   
+                    <div class="rate" if:true={istrue}>
+                        <div class="rate">
+                            <input type="radio" id="star15" name="Rating"  onchange={rating} />
+                            <label for="star15" title="text">5 stars</label>
+                            <input type="radio" id="star14" name="Rating" onchange={rating} />
+                            <label for="star14" title="text">4 stars</label>
+                            <input type="radio" id="star13" name="Rating"  onchange={rating} />
+                            <label for="star13" title="text">3 stars</label>
+                            <input type="radio" id="star12" name="Rating"  onchange={rating} />
+                            <label for="star12" title="text">2 stars</label>
+                            <input type="radio" id="star11" name="Rating"  onchange={rating} />
+                            <label for="star11" title="text">1 star</label>
+                        </div>
+                    </div>
+                </lightning-tile>
+              
+                <lightning-button label="submit" onclick={submitValues}></lightning-button>
+           
+        
+    </lightning-card>
+</template>

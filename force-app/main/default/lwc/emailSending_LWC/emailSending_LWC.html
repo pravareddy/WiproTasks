@@ -1,0 +1,22 @@
+<template>
+    <lightning-card title="Sending an Email">
+
+        <lightning-input label="From Address" 
+                          required>
+        </lightning-input>
+        <lightning-input label="To Address"
+                         required
+                         oncommit={handleEmail}>
+        </lightning-input>
+        <lightning-input label="Subject">
+
+        </lightning-input>
+        <lightning-input-rich-text label="Body">
+
+        </lightning-input-rich-text>
+        <lightning-button label="Send" 
+                         variant="brand" 
+                         onclick={handleSendingEmail}>
+        </lightning-button>
+    </lightning-card>
+</template>

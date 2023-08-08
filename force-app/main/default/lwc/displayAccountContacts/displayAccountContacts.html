@@ -1,0 +1,11 @@
+<template>
+    <lightning-card title = "Account with Contacts using Wrapper class in LWC" icon-name = "custom:custom17">
+        <div class = "slds-m-around_medium">
+            <template if:true ={AccountsWithContacts}>
+            <template for:each = {AccountsWithContacts} for:item ="accCon">
+               <lightning-badge label ={accCon.Name} icon-name="standard:account" key={accCon.accRecord.Id}></lightning-badge> 
+            </template>
+            </template>
+        </div>
+    </lightning-card>
+</template>

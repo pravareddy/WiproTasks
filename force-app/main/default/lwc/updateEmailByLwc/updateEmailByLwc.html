@@ -1,0 +1,155 @@
+<template>
+   <div class="slds-card slds-m-horizontal_large">
+ <div style="color:blue;font-size: 35px;">
+    <lightning-card title="Update Email">
+    </lightning-card>
+ </div>
+ 
+ 
+ <!-- Spinner -->
+ <div class="slds-is-relative slds-m-around_large slds-align_absolute-center"
+ style="min-height: 300px; !important;" if:true={showSpinner}>
+ <lightning-spinner alternative-text="Loading..." variant="brand"></lightning-spinner>
+</div>
+<!-- /Spinner -->
+
+<template if:false={showSpinner}>
+ <!-- Header -->
+ <div class="slds-card__header slds-p-bottom_small">
+   <header>
+   <lightning-progress-indicator current-step={currentStep} type="base" variant="base">
+    <lightning-progress-step label="Update Email Adress"
+                            value="1"
+                            onclick={nextPage}>
+    </lightning-progress-step>
+    <lightning-progress-step label="Verify Email Address"
+                            value="2"
+                            onclick={nextPage}>
+    </lightning-progress-step>
+    <lightning-progress-step label="Completed"
+                            value="3"
+                            onclick={nextPage}>
+    </lightning-progress-step>
+   </lightning-progress-indicator>
+   </header>
+ </div>
+
+<!--First page-->
+<template if:true={showUpdateEmailAddress}>
+  <!-- Default/basic -->
+  <div class="slds-text-align_center">
+ <div class="slds-p-around_medium lgc-bg">
+   <lightning-input class="strong-text"
+                    type="text" 
+                    label="Update Email Address"
+                    required
+                    >
+   </lightning-input>
+</div>
+</div>
+
+<!-- Footer -->
+<footer class="slds-modal__footer slds-text-align_right" style="padding: 0.50rem 1rem;">
+   <lightning-button label="Continue" variant="brand" onclick={Continue}></lightning-button>
+</footer>
+</template>
+<!-- /First Page -->
+
+<!--Second page-->
+<template if:true={showVerifyEmailAddress}>
+   <!--<div id="variants" class="slds-p-vertical_x-small slds-grid slds-grid_vertical-align-center"> -->  
+      <ul class="slds-has-block-links">
+         <ul class="slds-list_horizontal slds-has-block-links_space">
+         
+         <li>                       
+           <lightning-icon icon-name="utility:info" 
+                           alternative-text="Info!" 
+                           variant="info" 
+                           title="info variant small" 
+                           class='blue-utility-icon'
+                           size="small"> 
+            </lightning-icon>
+      </li>
+         <ul>
+            <li><p class="strong-text">A One-Time Code will be sent to the customer's email address</p></li>
+            <li><p>They will need to provide the 6-digit verification code back for verification</p></li>
+         </ul>
+   </ul>
+</ul>
+   <!-- Footer -->
+   <footer class="slds-modal__footer slds-text-align_right" style="padding: 0.50rem 1rem;">
+   <lightning-button class="slds-p-right_xx-small" label="Skip Verification" variant="neutral" onclick={skipVerification}>
+   </lightning-button>
+   <lightning-button  label="Send Code" variant="brand" onclick={sendCode}></lightning-button>
+</footer>  
+</template>
+
+<template if:true={skipVerficationPage}>
+   <P>Without sending OTP the email was verified successfully</P>
+</template>
+
+<!-- /Second Page -->
+
+<template if:true={sentCodeToVerifyEmailAddress}>
+   <!--<div id="variants" class="slds-p-vertical_x-small slds-grid slds-grid_vertical-align-center"> -->  
+     <!--- <div class="slds-text-align_center">-->
+         <div>
+   <ul class="slds-has-block-links">
+      <ul class="slds-list_horizontal slds-has-block-links_space">
+         <li> 
+           <!---<div class="slds-text-align_center"></div>-->                   
+           <lightning-icon icon-name="utility:info" 
+                           alternative-text="Info!" 
+                           variant="info" 
+                           class='blue-utility-icon'
+                           title="info variant small" 
+                           size="small"> 
+            </lightning-icon>
+       </li>
+        
+         <ul>
+            
+            <li><p class="strong-text">A One-Time Code has beeen sent to the {storeEmailAdd}</p></li>
+            <li><p>Ask the customer to provide the code to complete verfication</p></li>
+         
+         </ul>
+      </ul> 
+         <li><lightning-input  class="slds-align_absolute-center" type="number" name="input1" label="Please enter the customer's 6-digit verification code" onchange= {handleChange}></lightning-input></li>   
+   </ul>
+</div>
+   <!-- Footer -->
+   <footer class="slds-modal__footer slds-text-align_right" style="padding: 0.50rem 1rem;">
+      
+      <lightning-button  lass="slds-float_right" label="Verify Code" variant="brand" disabled={Buttontrue} onclick={verifyCode}>
+      </lightning-button>
+      
+   </footer>  
+   <!--/Footer-->
+</template>
+
+<!--Third Page-->
+<template if:true={showComplete}>
+   <ul class="slds-list_horizontal slds-has-block-links_space">
+      <li> 
+         <lightning-icon icon-name="action:check" alternative-text="checked" title="checked" size="xx-small"></lightning-icon>
+
+
+      </li>
+      <li></li>
+      <li>
+          <p style="font-size: 16px;">Email address has been successfully verified</p>
+      </li>
+   </ul>
+</template>
+<!-- /Third Page -->
+<!-- Footer -->
+<!--<footer class="slds-modal__footer slds-text-align_right" style="padding: 0.50rem 1rem;">
+   <lightning-button class="slds-p-right_xx-small" label="Back" variant="neutral" onclick={previousPage}>
+   </lightning-button>
+   <lightning-button label="Continue" variant="brand" onclick={nextPage}></lightning-button>
+</footer>-->
+
+
+</template>
+</div>
+</template>

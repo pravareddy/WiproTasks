@@ -1,0 +1,45 @@
+<template>
+    <lightning-card title="Select a Life Support Contact">
+        <lightning-button-group>
+            <lightning-button label ="Contacts on this Account" onclick={showListOfContacts}></lightning-button>
+            <lightning-button label="Alternative Contact" onclick={createAContact}></lightning-button>
+        </lightning-button-group>
+
+    </lightning-card>
+    <lightning-card title="A Life Support Contact must have Email Address and Mobile Phone">
+       <table class="slds-table slds-table_cell-buffer slds-table_bordered" border="1" cellspacing="0" cellpadding="0" bordercolor="red" style="border-collapse:collapse;">
+              <thead>
+                <tr>
+                     <th>Select</th>
+                      <th>FirstName</th>
+                      <th>LastName</th>
+                      <th>Phone</th>
+                      <th>Email</th>
+                      <th>Department</th>
+                </tr>
+              </thead>
+            <template for:each={gettingContacts} for:item='conDetails'>
+                 <tr key={conDetails.Id}>
+                    <td>
+                      <lightning-input type="radio" name="radioButtonSelect" value={conDetails.Id} disabled={isEmail}> 
+
+                       </lightning-input></td>
+                    <td>{conDetails.FirstName}</td>
+                    <td>{conDetails.LastName}</td>
+                    <td>{conDetails.Phone}</td>
+                    <td>{conDetails.Email}</td>
+                    <td>{conDetails.Department}</td>
+                  </tr>
+             </template>
+        </table>
+      </lightning-card>
+
+      <lightning-card title="Creation of Contact">
+        <lightning-input label="FirstName" onchange={contactInfo}></lightning-input>
+        <lightning-input label="LastName" onchange={contactInfo}></lightning-input>
+        <lightning-input label="Email" onchange={contactInfo}></lightning-input>
+        <lightning-input label="Phone" onchange={contactInfo}></lightning-input>
+        <lightning-input label="Department" onchange={contactInfo}></lightning-input>
+        <lightning-button label="submit" onclick={createContact}></lightning-button>
+      </lightning-card>
+</template>

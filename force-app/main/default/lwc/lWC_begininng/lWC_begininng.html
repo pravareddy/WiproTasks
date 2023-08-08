@@ -1,0 +1,28 @@
+<template>
+    <lightning-card title='displaying name'>
+      <template for:each={dresses} for:item="a">
+          <p key={a}>{a}</p>
+      </template>
+
+      ********************************************************
+      <template iterator:item ={dresses}>
+       <p key={item.value}>{item.value}</p>
+      </template>
+      
+
+    </lightning-card>
+    ************************************************
+    <lightning-card title="complex data">
+        <template for:each ={Employees} for:item="emp">
+        Employee Name : {Employee.Name}         <p key ={emp}>
+            {Emp.Name}
+        </p>
+        Employee Age : {Employee.age}           
+        <p key ={emp}></p>
+        
+        Employee Company : {Employee.company}  <p key ={emp}></p>
+        Employee Salary : {Employee.salary}   <p key ={emp}></p>
+    </template>
+    </lightning-card>
+
+</template>

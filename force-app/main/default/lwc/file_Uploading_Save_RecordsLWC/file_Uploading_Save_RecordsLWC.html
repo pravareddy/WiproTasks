@@ -1,0 +1,17 @@
+<template>
+    <!-- <div style="z-index: 10000 !important;">
+        <lightning-spinner alternative-text="Uploading......" size="medium" style="z-index: 10000 !important;"></lightning-spinner>
+    </div>  -->
+    <lightning-card title="File Uploading">
+        <div>
+        <lightning-input label="" name="file uploader" onchange={handleFileChange} type="file" multiple></lightning-input>
+       </div></br>
+        <div>
+       <lightning-button label="Upload Files" variant="brand" onclick={handleSave}></lightning-button>
+        </div></br>
+
+    </lightning-card>
+    <lightning-card title="Account" icon-name="standard:account">
+
+    </lightning-card>
+</template>

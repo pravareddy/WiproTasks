@@ -1,0 +1,11 @@
+<template>
+    <lightning-card>
+    <lightning-input label="From" required placeholder="abc@email.com" onchange={enterValues}></lightning-input>
+    <lightning-input label="Email" required placeholder="abc@email.com" onchange={enterValues}></lightning-input>
+    <lightning-input label="cc"  placeholder="abc@email.com" onchange={enterValues}></lightning-input>
+    <lightning-input label="Subject" required placeholder="subject" onchange={enterValues}></lightning-input>
+    <lightning-input-rich-text label="Mail body" onchange={enterValues}></lightning-input-rich-text>
+    <lightning-button label="Send" variant="brand" onclick={sendValues}></lightning-button><br>
+    <lightning-button label="Reset" onclick={resetValues}></lightning-button>
+    </lightning-card>
+</template>

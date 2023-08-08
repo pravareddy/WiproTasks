@@ -1,0 +1,38 @@
+<template>
+    <lightning-card title="Display Account related Contacts">
+       <table>
+        <tr>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Department</th>
+
+        </tr>
+        <template for:each={storeConRec} for:item="conDetails">
+            <tr key={conDetails.Id}>
+                <td>
+                    
+                    {conDetails.FirstName}
+                
+                </td>
+                <td>
+                    
+                    {conDetails.LastName}
+                
+                </td>
+                <td>
+                    
+                    {conDetails.Phone}
+                
+                </td>
+                <td>
+                    
+                    {conDetails.Email}
+                
+                </td>
+                </tr>
+        </template>
+            </table>
+    </lightning-card>
+</template>

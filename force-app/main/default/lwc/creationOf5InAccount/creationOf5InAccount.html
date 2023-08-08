@@ -1,0 +1,17 @@
+<template>
+    <lightning-card title="Creation of 5 fields in Account">
+        <div class="slds-m-around_medium">
+        <lightning-input label="account Name" data-field="AccountName"  onchange={handledChange}></lightning-input>
+        <lightning-input label="AccountNumber" data-field="AccountNumber"  onchange={handledChange}></lightning-input>
+        <lightning-input label="AnnualRevenue" data-field="AnnualRevenue" onchange={handledChange}></lightning-input>
+
+        <lightning-input label="Phone" data-field="Phone" onchange={handledChange}></lightning-input>
+
+        <lightning-input label="Rating" data-field="Rating" onchange={handledChange}></lightning-input>
+    </div>
+    <lightning-button label="createAccount" onclick={createAccount}></lightning-button>
+
+
+    </lightning-card>
+    
+</template>

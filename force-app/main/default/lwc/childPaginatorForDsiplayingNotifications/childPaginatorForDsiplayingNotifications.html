@@ -1,0 +1,14 @@
+<template>
+ <!--Previous and next button added on child component and which button clicked on passes as child to parent communication--> 
+ <lightning-layout>
+    <lightning-layout-item>
+        <lightning-button label="Previous" icon-name="utility:chevronleft" onclick={handlePrevious} disabled={disablePrevButton}></lightning-button>
+    </lightning-layout-item>
+    <lightning-layout-item flexibility="grow"></lightning-layout-item>
+    <lightning-layout-item>
+        <lightning-button icon-name="utility:chevronright" label="Next"  onclick={handleNext} disabled={disableNextButton}></lightning-button>
+    </lightning-layout-item>
+ </lightning-layout> 
+ <p>{pageCountFromParent}</p>
+ <p>{totalPageCountFromParent}</p>
+</template>

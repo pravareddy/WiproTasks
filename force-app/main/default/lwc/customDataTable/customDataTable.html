@@ -1,0 +1,95 @@
+<template>
+    <lightning-card title = 'Contact List'>
+    <div if:true={renderTable}>
+    <table>
+    <tr>
+        <th>ContactPhone</th>
+        <th>FirstName</th>
+        <th>LastName</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Action</th>
+    </tr>
+
+    <template for:each={allContacts} for:item="con" key={con.Id}>
+      <tr key={con.Id}>
+        <td>
+
+            <a onclick={handleHyperLink} data-id={con.Id}>{con.Phone}</a>
+            </td>
+            <td>
+            <div if:true={con.isEdit}></div>
+            
+            <lightning-input  
+                        key={con.Id} 
+                        data-id={con.Id}  
+                        value={con.FirstName}
+                        onchange={handleChange}>
+                    </lightning-input>
+             </div>
+             <div if:false={con.isEdit}>
+                 {con.FirstName}
+             </div>
+        </td>
+        <td>
+            <div if:true={con.isEdit}>
+            <lightning-input 
+                        key={con.Id}  
+                        data-id={con.Id}  
+                        value={con.LastName}
+                        onchange={handleChange}>
+                    </lightning-input>
+                </div>
+                <div if:false={con.isEdit}>
+                     
+                </div>
+        </td>
+        <td>
+            <div if:true={con.isEdit}>
+            <lightning-input key={con.Id} 
+                            data-id={con.Id}  
+                            value={con.Email} 
+                            onchange={handleChange}>
+            
+            </lightning-input>
+        </div>
+        <div if:false={con.isEdit}>
+
+        </div>
+            
+        </td>
+        <td>
+            <div if:true={con.Edit}>
+            <lightning-input  key={con.Id} 
+                              data-id={con.Id}  
+                              value={con.Phone}
+                            onchange={handleChange}>
+                        
+            </lightning-input>
+        </div>
+        <div if:false={isEdit}></div>
+        </td>
+        <td>
+            <lightning-button-icon 
+                                  icon-name="utility:edit" 
+                                  data-id={con.Id}  
+                                   variant="bare"  
+                                   alternative-text="edit" 
+                                   class="slds-m-left_xx-small" 
+                                   onclick={tryingToEdit} >
+                                  </lightning-button-icon>
+        </td>
+        </tr>
+    </template>
+ </table>
+ <div >
+     <lightning-button name="save" label="save" onclick={handleSave}></lightning-button>
+     <lightning-button name="cancel" label="cancel" onclick={handleCancel}></lightning-button>
+ </div>
+</div>
+</lightning-card>
+<div if:false={renderTable}>
+    <p>This Account Object does not have any contacts </p>
+</div>
+    
+</template>

@@ -1,0 +1,106 @@
+<template>
+<lightning-card title="Order Details"  icon-name="utility:orders" style = "width:1000px;height:1000px">
+    
+    <div class="slds-theme_default">
+        <table class="slds-table slds-table_bordered slds-border_left slds-border_right">
+            <thead>
+            <tr class="slds-line-height_reset">
+            <th>Id</th>
+            <th>Name</th>
+            <th>TypeOfOrder</th>
+            <th>status</th>
+            <th>Icons</th>        
+            </tr>
+        </thead>
+        <tbody>  
+    <template for:each={objList} for:item="obj">
+        <tr key={obj.Id}>
+            <td>
+                    <template if:true={obj.isEdit}>
+                        <lightning-input 
+                                        data-id={obj.Id}  
+                                        value={obj.Id}
+                                        onchange={handleChange}>
+                            
+                        </lightning-input>
+                    </template>
+                    <template if:false={obj.isEdit}>
+                        {obj.Id}
+                        
+                    </template>
+            </td>
+            <td>
+                <div if:true={obj.isEdit}>
+                    <lightning-input  
+                                    data-id={obj.Id}  
+                                    value={obj.Name}
+                                    onchange={handleChange}>
+                        
+                    </lightning-input>
+                </div>
+                <div if:false={obj.isEdit}>
+                    {obj.Name}
+                    
+                </div>
+        </td>
+        <td>
+            <div if:true={obj.isEdit} >
+                <lightning-input  
+                                data-id={obj.Id}  
+                                value={obj.TypeOfOrder}
+                                onchange={handleChange}>
+                    
+                </lightning-input>
+            </div>
+            <div if:false={obj.isEdit}>
+                {obj.TypeOfOrder}
+                
+            </div>
+    </td>
+    <td>
+        <div if:true={obj.isEdit}>
+            <lightning-input  
+                            data-id={obj.Id}  
+                            value={obj.status}
+                            onchange={handleChange}>
+                
+            </lightning-input>
+        </div>
+        <div if:false={obj.isEdit}>
+            {obj.status}
+            
+        </div>
+    </td>
+        
+        <td>
+            <lightning-button-group>
+                
+            <lightning-button-icon icon-name="utility:edit"     
+                                    alternative-text="edit" 
+                                    data-id={obj.Id}
+                                    onclick={handleEdit}    
+                                    title="edit">
+            </lightning-button-icon></div>
+            
+        
+            <lightning-button-icon icon-name="utility:save"     
+                                    alternative-text="Save" 
+                                    onclick={handleSave}    
+                                    title="Save">
+            </lightning-button-icon>
+            <lightning-button-icon icon-name="utility:delete"     
+                                    alternative-text="delete"  
+                                    onclick={handleDelete}   
+                                    title="delete">
+            </lightning-button-icon>
+            </lightning-button-group>
+        </td>
+        </tr>
+    </template>
+        </tbody>
+    
+</table>
+    </div>
+</lightning-card>
+
+</template>
